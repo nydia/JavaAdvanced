@@ -3,7 +3,8 @@ package week1.task2;
 public class HelloClassloader extends ClassLoader{
 
     public static void main(String[] args) {
-        System.out.println();
+        String filePath = HelloClassloader.class.getResource("/").getPath();
+        System.out.println(filePath);
     }
 
     @Override
