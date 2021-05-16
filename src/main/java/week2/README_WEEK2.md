@@ -12,6 +12,8 @@
 
 #### 作业6： JavaAdvanced\src\main\java\week2\task6\HttpReqDemo.java
 
+只复制了客户端请求的代码，服务端的代码没有黏贴进来。
+
 ```java
 
 package week2.task6;
