@@ -2,7 +2,7 @@
 
 #### 作业2：
 
-1.方法1：
+1.方法1：当前线程执行CountDownLatch.await(),等所有子线程执行CountDownLatch.countDown()之后在执行
 
 ```java
 /**
@@ -35,7 +35,7 @@ public class Method01 {
 }
 ```
 
-2.方法2：
+2.方法2：CyclicBarrier 等待所有子线程执行完成之后执行下一步
 
 ```java
 /**
@@ -71,7 +71,7 @@ public class Method02 {
 }
 ```
 
-3.方法3：
+3.方法3：当前线程等Future.get()返回后再执行
 
 ```java
 
@@ -106,7 +106,7 @@ public class Method03 {
 }
 ```
 
-4. 方法4:
+4. 方法4: CompletableFuture.get() 等待任务执行完成在执行当前线程
 
 ```java
 /**
@@ -135,6 +135,44 @@ public class Method04 {
 }
 ```
 
+5. 方法5： Thread.join() 阻塞当前线程的执行等待子线程执行完成
+
+```java
+/**
+ * @Auther: hqlv
+ * @Date: 2021/5/29 23:55
+ * @Description: Thread.join() 阻塞当前线程的执行等待子线程执行完成
+ */
+public class Method05 {
+    public static void main(String[] args) {
+        TD t = new TD();
+        t.start();
+        try {
+            t.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("hello......two");
+    }
+    static class TD extends Thread {
+        @Override
+        public void run() {
+            try {
+                Thread.sleep(20);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("hello......one");
+        }
+    }
+}
+```
+
+6. 方法6：
+
+```java
+
+```
 
 #### 作业6:
 
