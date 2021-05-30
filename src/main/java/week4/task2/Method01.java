@@ -5,7 +5,7 @@ import java.util.concurrent.CountDownLatch;
 /**
  * @Auther: hqlv
  * @Date: 2021/5/29 23:42
- * @Description: 方式1
+ * @Description: CountDownLatch 阻塞实现
  */
 public class Method01 {
     public static void main(String[] args) {
