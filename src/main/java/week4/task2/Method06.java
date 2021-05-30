@@ -1,33 +1,32 @@
 package week4.task2;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
+
 /**
  * @Auther: hqlv
  * @Date: 2021/5/29 23:55
- * @Description: Thread.join() 阻塞当前线程的执行等待子线程执行完成
+ * @Description: FutureTask.get() 等待子线程返回后再执行当前线程
  */
 public class Method06 {
     public static void main(String[] args) {
-        TD t = new TD();
-        t.start();
+        FutureTask<String> futureTask = new FutureTask<>(new MyCallable());
         try {
-            t.join();
+            new Thread(futureTask).start();
+            String str = futureTask.get();
+            System.out.println(str);
         } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
             e.printStackTrace();
         }
         System.out.println("hello......two");
     }
-    static class TD extends Thread {
+    static class MyCallable implements Callable<String> {
         @Override
-        public void run() {
-            try {
-                Thread.sleep(20);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            System.out.println("hello......one");
+        public String call() throws Exception {
+            return "hello......one";
         }
-    }
-    public synchronized void run(){
-
     }
 }
