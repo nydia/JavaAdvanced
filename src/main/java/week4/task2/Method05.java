@@ -8,6 +8,7 @@ package week4.task2;
 public class Method05 {
     public static void main(String[] args) {
         TD t = new TD();
+        t.setDaemon(true);
         t.start();
         try {
             t.join();

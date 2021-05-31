@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6550889-653f-433b-8672-7cb7f6f721c1" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/week4/task2/Method07.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/week4/README_WEEK4.md" afterPath="$PROJECT_DIR$/src/main/java/week4/README_WEEK4.md" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/week4/nThread&amp;JavaConcurrency.png" afterPath="$PROJECT_DIR$/src/main/java/week4/nThread&amp;JavaConcurrency.png" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/week4/task2/Method06.java" afterPath="$PROJECT_DIR$/src/main/java/week4/task2/Method06.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/week4/task2/Method01.java" afterPath="$PROJECT_DIR$/src/main/java/week4/task2/Method01.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/week4/task2/Method02.java" afterPath="$PROJECT_DIR$/src/main/java/week4/task2/Method02.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/week4/task2/Method03.java" afterPath="$PROJECT_DIR$/src/main/java/week4/task2/Method03.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/week4/task2/Method05.java" afterPath="$PROJECT_DIR$/src/main/java/week4/task2/Method05.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,68 +19,138 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Method07.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method07.java">
+      <file leaf-file-name="BrokenBarrierException.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/concurrent/BrokenBarrierException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="14" column="42" lean-forward="true" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+            <state relative-caret-position="113">
+              <caret line="47" column="13" lean-forward="false" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CompletableFuture.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/concurrent/CompletableFuture.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="1636" column="42" lean-forward="true" selection-start-line="1636" selection-start-column="42" selection-end-line="1636" selection-end-column="42" />
               <folding>
-                <element signature="e#167#195#1" expanded="true" />
-                <element signature="e#425#508#0" expanded="true" />
-                <element signature="e#425#508#0" expanded="true" />
+                <element signature="e#69562#69563#0" expanded="true" />
+                <element signature="e#69619#69620#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README_WEEK4.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/week4/README_WEEK4.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="190">
-                <caret line="177" column="3" lean-forward="false" selection-start-line="177" selection-start-column="3" selection-end-line="177" selection-end-column="3" />
-                <folding>
-                  <marker date="1622384169072" expanded="true" signature="104:191" ph="/**...*/" />
-                  <marker date="1622384169072" expanded="true" signature="259:543" ph="{...}" />
-                  <marker date="1622384169072" expanded="false" signature="269:283" ph="val" />
-                  <marker date="1622384169072" expanded="false" signature="332:338" ph="val" />
-                  <marker date="1622384169072" expanded="true" signature="589:903" ph="{...}" />
-                  <marker date="1622384169072" expanded="false" signature="692:706" ph=" { " />
-                  <marker date="1622384169072" expanded="false" signature="743:753" ph=" }" />
-                  <marker date="1622384169072" expanded="true" signature="798:897" ph="{...}" />
-                  <marker date="1622384169072" expanded="true" signature="959:1045" ph="/**...*/" />
-                  <marker date="1622384169072" expanded="true" signature="1113:1291" ph="{...}" />
-                  <marker date="1622384169072" expanded="false" signature="1123:1136" ph="val" />
-                  <marker date="1622384169072" expanded="false" signature="1183:1189" ph="val" />
-                  <marker date="1622384169072" expanded="true" signature="1337:1846" ph="{...}" />
-                  <marker date="1622384169072" expanded="false" signature="1436:1450" ph=" { " />
-                  <marker date="1622384169072" expanded="false" signature="1485:1495" ph=" }" />
-                  <marker date="1622384169072" expanded="true" signature="1540:1840" ph="{...}" />
-                  <marker date="1622384169072" expanded="true" signature="1894:1977" ph="/**...*/" />
-                  <marker date="1622384169072" expanded="false" signature="2037:2049" ph="runtime" />
-                  <marker date="1622384169072" expanded="true" signature="2202:2531" ph="{...}" />
-                  <marker date="1622384169072" expanded="false" signature="2212:2218" ph="val" />
-                  <marker date="1622384169072" expanded="true" signature="2582:2780" ph="{...}" />
-                  <marker date="1622384169072" expanded="true" signature="2645:2774" ph="{...}" />
-                  <marker date="1622384169072" expanded="false" signature="2659:2662" ph="val" />
-                  <marker date="1622384169072" expanded="true" signature="2845:2939" ph="/**...*/" />
-                  <marker date="1622384169072" expanded="true" signature="3007:3293" ph="{...}" />
-                  <marker date="1622384169072" expanded="false" signature="3017:3034" ph="val" />
-                  <marker date="1622384169072" expanded="true" signature="3341:3451" ph="{...}" />
-                  <marker date="1622384169072" expanded="false" signature="3386:3401" ph=" { " />
-                  <marker date="1622384169072" expanded="false" signature="3435:3445" ph=" }" />
-                  <marker date="1622384169072" expanded="true" signature="3509:3609" ph="/**...*/" />
-                  <marker date="1622384169072" expanded="true" signature="3677:3896" ph="{...}" />
-                  <marker date="1622384169072" expanded="false" signature="3687:3689" ph="val" />
-                  <marker date="1622384169072" expanded="true" signature="3932:4195" ph="{...}" />
-                  <marker date="1622384169072" expanded="true" signature="3978:4189" ph="{...}" />
-                  <marker date="1622384169072" expanded="true" signature="4252:4352" ph="/**...*/" />
-                  <marker date="1622384169072" expanded="true" signature="4420:4847" ph="{...}" />
-                  <marker date="1622384169072" expanded="true" signature="4904:5024" ph="{...}" />
-                  <marker date="1622384169072" expanded="true" signature="4970:5018" ph="{...}" />
-                </folding>
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="CyclicBarrier.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/concurrent/CyclicBarrier.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="292" column="11" lean-forward="false" selection-start-line="292" selection-start-column="11" selection-end-line="292" selection-end-column="11" />
+              <folding>
+                <element signature="e#9581#9582#0" expanded="true" />
+                <element signature="e#9616#9617#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Method02.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method02.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="26" column="17" lean-forward="true" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+              <folding>
+                <element signature="e#380#437#1" expanded="true" />
+                <element signature="e#446#513#1" expanded="true" />
+                <element signature="e#522#958#1" expanded="true" />
+                <element signature="e#657#688#0" expanded="true" />
+                <element signature="e#967#984#0" expanded="true" />
+                <element signature="e#967#984#0" expanded="true" />
+                <element signature="e#1197#1198#0" expanded="true" />
+                <element signature="e#1254#1255#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Method03.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method03.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="29" column="33" lean-forward="true" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Method04.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method04.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#290#360#1" expanded="true" />
+                <element signature="e#411#486#0" expanded="true" />
+                <element signature="e#411#486#0" expanded="true" />
+                <element signature="e#660#661#0" expanded="true" />
+                <element signature="e#717#718#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Method05.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method05.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#200#216#1" expanded="true" />
+                <element signature="e#225#242#0" expanded="true" />
+                <element signature="e#225#242#0" expanded="true" />
+                <element signature="e#309#384#0" expanded="true" />
+                <element signature="e#309#384#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Method06.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method06.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#327#394#1" expanded="true" />
+                <element signature="e#465#495#1" expanded="true" />
+                <element signature="e#619#692#0" expanded="true" />
+                <element signature="e#619#692#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Method07.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method07.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+              <folding>
+                <element signature="e#167#195#1" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Object.class" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/jre/lib/rt.jar!/java/lang/Object.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -123,13 +194,14 @@
         <option value="$PROJECT_DIR$/src/main/java/week3/gateway/inbound/HttpInboundInitializer.java" />
         <option value="$PROJECT_DIR$/src/main/java/week3/gateway/NettyServerApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/week3/README_WEEK3.md" />
+        <option value="$PROJECT_DIR$/src/main/java/week4/task2/Method06.java" />
+        <option value="$PROJECT_DIR$/src/main/java/week4/README_WEEK4.md" />
+        <option value="$PROJECT_DIR$/src/main/java/week4/task2/Method05.java" />
+        <option value="$PROJECT_DIR$/src/main/java/week4/task2/Method01_1.java" />
         <option value="$PROJECT_DIR$/src/main/java/week4/task2/Method01.java" />
         <option value="$PROJECT_DIR$/src/main/java/week4/task2/Method02.java" />
         <option value="$PROJECT_DIR$/src/main/java/week4/task2/Method03.java" />
         <option value="$PROJECT_DIR$/src/main/java/week4/task2/Method04.java" />
-        <option value="$PROJECT_DIR$/src/main/java/week4/task2/Method05.java" />
-        <option value="$PROJECT_DIR$/src/main/java/week4/task2/Method06.java" />
-        <option value="$PROJECT_DIR$/src/main/java/week4/README_WEEK4.md" />
         <option value="$PROJECT_DIR$/src/main/java/week4/task2/Method07.java" />
       </list>
     </option>
@@ -180,10 +252,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -234,6 +303,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -268,12 +340,50 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Method07">
+  <component name="RunManager" selected="Application.Method03">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
+    </configuration>
+    <configuration name="Method01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="week4.task2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="week4.task2.Method01" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="JavaAdvanced" />
+      <envs />
+    </configuration>
+    <configuration name="Method02" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="week4.task2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="week4.task2.Method02" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="JavaAdvanced" />
+      <envs />
     </configuration>
     <configuration name="Method03" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
@@ -294,25 +404,6 @@
       <module name="JavaAdvanced" />
       <envs />
     </configuration>
-    <configuration name="Method04" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="week4.task2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="week4.task2.Method04" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="JavaAdvanced" />
-      <envs />
-    </configuration>
     <configuration name="Method05" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -321,25 +412,6 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="week4.task2.Method05" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="JavaAdvanced" />
-      <envs />
-    </configuration>
-    <configuration name="Method06" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="week4.task2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="week4.task2.Method06" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -445,19 +517,19 @@
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.Method03" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Method04" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Method05" />
-      <item index="3" class="java.lang.String" itemvalue="Application.Method06" />
-      <item index="4" class="java.lang.String" itemvalue="Application.Method07" />
+      <item index="0" class="java.lang.String" itemvalue="Application.Method05" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Method07" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Method01" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Method02" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Method03" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Method07" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Method06" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Method05" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Method04" />
-        <item index="4" class="java.lang.String" itemvalue="Application.Method03" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Method03" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Method02" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Method01" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Method07" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Method05" />
       </list>
     </recent_temporary>
   </component>
@@ -481,15 +553,17 @@
       <updated>1621658860396</updated>
       <workItem from="1621658863718" duration="14811000" />
       <workItem from="1622039124645" duration="597000" />
-      <workItem from="1622124801046" duration="16341000" />
+      <workItem from="1622124801046" duration="16978000" />
+      <workItem from="1622466966802" duration="6491000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31749000" />
+    <option name="totallyTimeSpent" value="38877000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -500,12 +574,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31630972" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25037822" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25416037" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="SonarLint" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -513,8 +587,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3970346" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -562,43 +636,36 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/week4/task2/Method02.java</url>
+          <line>15</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/week4/task2/Method02.java</url>
+          <line>21</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/week4/task2/Method02.java</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="5" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/week3/gateway/outbound/netty4/NettyHttpClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/week3/README_WEEK3.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="190">
-            <caret line="10" column="58" lean-forward="false" selection-start-line="10" selection-start-column="58" selection-end-line="10" selection-end-column="58" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/week3/gateway/filter/HttpResponseFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/week3/gateway/filter/HeaderHttpResponseFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#219#220#0" expanded="false" />
-            <element signature="e#277#278#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -697,7 +764,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -705,7 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -720,7 +785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="23" column="34" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -728,7 +792,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -736,7 +799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -760,10 +822,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <marker date="1621179273085" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1621179273085" expanded="false" signature="140:257" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -771,10 +829,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="27" column="31" lean-forward="false" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
-          <folding>
-            <element signature="e#473#474#0" expanded="false" />
-            <element signature="e#510#511#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -782,9 +836,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="42" column="24" lean-forward="false" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -792,7 +843,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="7" column="18" lean-forward="false" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -800,7 +850,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -808,9 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="96" column="17" lean-forward="true" selection-start-line="96" selection-start-column="17" selection-end-line="96" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -833,22 +879,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/concurrent/CyclicBarrier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="470" column="19" lean-forward="true" selection-start-line="470" selection-start-column="19" selection-end-line="470" selection-end-column="19" />
-          <folding>
-            <element signature="e#9581#9582#0" expanded="false" />
-            <element signature="e#9616#9617#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/concurrent/ConcurrentHashMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="266" column="13" lean-forward="false" selection-start-line="266" selection-start-column="13" selection-end-line="266" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -880,22 +914,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/concurrent/CompletableFuture.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="1841" column="42" lean-forward="false" selection-start-line="1841" selection-start-column="42" selection-end-line="1841" selection-end-column="42" />
-          <folding>
-            <element signature="e#69562#69563#0" expanded="false" />
-            <element signature="e#69619#69620#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.20/lombok-1.18.20.jar!/lombok/Synchronized.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -911,7 +933,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="57" column="17" lean-forward="false" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -923,125 +944,200 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method01.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method02.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="35" column="1" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="35" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method03.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method04.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#290#360#1" expanded="true" />
-            <element signature="e#487#560#0" expanded="true" />
-            <element signature="e#487#560#0" expanded="true" />
-            <element signature="e#660#661#0" expanded="true" />
-            <element signature="e#717#718#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method06.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="29" column="9" lean-forward="true" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#327#394#1" expanded="true" />
-            <element signature="e#465#495#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method05.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="e#200#216#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/week4/README_WEEK4.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="190">
-            <caret line="177" column="3" lean-forward="false" selection-start-line="177" selection-start-column="3" selection-end-line="177" selection-end-column="3" />
+          <first_editor relative-caret-position="171">
+            <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
             <folding>
-              <marker date="1622384169072" expanded="true" signature="104:191" ph="/**...*/" />
-              <marker date="1622384169072" expanded="true" signature="259:543" ph="{...}" />
-              <marker date="1622384169072" expanded="false" signature="269:283" ph="val" />
-              <marker date="1622384169072" expanded="false" signature="332:338" ph="val" />
-              <marker date="1622384169072" expanded="true" signature="589:903" ph="{...}" />
-              <marker date="1622384169072" expanded="false" signature="692:706" ph=" { " />
-              <marker date="1622384169072" expanded="false" signature="743:753" ph=" }" />
-              <marker date="1622384169072" expanded="true" signature="798:897" ph="{...}" />
-              <marker date="1622384169072" expanded="true" signature="959:1045" ph="/**...*/" />
-              <marker date="1622384169072" expanded="true" signature="1113:1291" ph="{...}" />
-              <marker date="1622384169072" expanded="false" signature="1123:1136" ph="val" />
-              <marker date="1622384169072" expanded="false" signature="1183:1189" ph="val" />
-              <marker date="1622384169072" expanded="true" signature="1337:1846" ph="{...}" />
-              <marker date="1622384169072" expanded="false" signature="1436:1450" ph=" { " />
-              <marker date="1622384169072" expanded="false" signature="1485:1495" ph=" }" />
-              <marker date="1622384169072" expanded="true" signature="1540:1840" ph="{...}" />
-              <marker date="1622384169072" expanded="true" signature="1894:1977" ph="/**...*/" />
-              <marker date="1622384169072" expanded="false" signature="2037:2049" ph="runtime" />
-              <marker date="1622384169072" expanded="true" signature="2202:2531" ph="{...}" />
-              <marker date="1622384169072" expanded="false" signature="2212:2218" ph="val" />
-              <marker date="1622384169072" expanded="true" signature="2582:2780" ph="{...}" />
-              <marker date="1622384169072" expanded="true" signature="2645:2774" ph="{...}" />
-              <marker date="1622384169072" expanded="false" signature="2659:2662" ph="val" />
-              <marker date="1622384169072" expanded="true" signature="2845:2939" ph="/**...*/" />
-              <marker date="1622384169072" expanded="true" signature="3007:3293" ph="{...}" />
-              <marker date="1622384169072" expanded="false" signature="3017:3034" ph="val" />
-              <marker date="1622384169072" expanded="true" signature="3341:3451" ph="{...}" />
-              <marker date="1622384169072" expanded="false" signature="3386:3401" ph=" { " />
-              <marker date="1622384169072" expanded="false" signature="3435:3445" ph=" }" />
-              <marker date="1622384169072" expanded="true" signature="3509:3609" ph="/**...*/" />
-              <marker date="1622384169072" expanded="true" signature="3677:3896" ph="{...}" />
-              <marker date="1622384169072" expanded="false" signature="3687:3689" ph="val" />
-              <marker date="1622384169072" expanded="true" signature="3932:4195" ph="{...}" />
-              <marker date="1622384169072" expanded="true" signature="3978:4189" ph="{...}" />
-              <marker date="1622384169072" expanded="true" signature="4252:4352" ph="/**...*/" />
-              <marker date="1622384169072" expanded="true" signature="4420:4847" ph="{...}" />
-              <marker date="1622384169072" expanded="true" signature="4904:5024" ph="{...}" />
-              <marker date="1622384169072" expanded="true" signature="4970:5018" ph="{...}" />
+              <marker date="1622468617178" expanded="true" signature="146:233" ph="/**...*/" />
+              <marker date="1622468617178" expanded="true" signature="301:585" ph="{...}" />
+              <marker date="1622468617178" expanded="false" signature="311:325" ph="val" />
+              <marker date="1622468617178" expanded="false" signature="374:380" ph="val" />
+              <marker date="1622468617178" expanded="true" signature="631:945" ph="{...}" />
+              <marker date="1622468617178" expanded="false" signature="734:748" ph=" { " />
+              <marker date="1622468617178" expanded="false" signature="785:795" ph=" }" />
+              <marker date="1622468617178" expanded="true" signature="840:939" ph="{...}" />
+              <marker date="1622468617178" expanded="true" signature="1001:1087" ph="/**...*/" />
+              <marker date="1622468617178" expanded="true" signature="1155:1333" ph="{...}" />
+              <marker date="1622468617178" expanded="false" signature="1165:1178" ph="val" />
+              <marker date="1622468617178" expanded="false" signature="1225:1231" ph="val" />
+              <marker date="1622468617178" expanded="true" signature="1379:1888" ph="{...}" />
+              <marker date="1622468617178" expanded="false" signature="1478:1492" ph=" { " />
+              <marker date="1622468617178" expanded="false" signature="1527:1537" ph=" }" />
+              <marker date="1622468617178" expanded="true" signature="1582:1882" ph="{...}" />
+              <marker date="1622468617178" expanded="true" signature="1936:2019" ph="/**...*/" />
+              <marker date="1622468617178" expanded="false" signature="2079:2091" ph="runtime" />
+              <marker date="1622468617178" expanded="true" signature="2244:2573" ph="{...}" />
+              <marker date="1622468617178" expanded="false" signature="2254:2260" ph="val" />
+              <marker date="1622468617178" expanded="true" signature="2624:2822" ph="{...}" />
+              <marker date="1622468617178" expanded="true" signature="2687:2816" ph="{...}" />
+              <marker date="1622468617178" expanded="false" signature="2701:2704" ph="val" />
+              <marker date="1622468617178" expanded="true" signature="2887:2981" ph="/**...*/" />
+              <marker date="1622468617178" expanded="true" signature="3049:3335" ph="{...}" />
+              <marker date="1622468617178" expanded="false" signature="3059:3076" ph="val" />
+              <marker date="1622468617178" expanded="true" signature="3383:3493" ph="{...}" />
+              <marker date="1622468617178" expanded="false" signature="3428:3443" ph=" { " />
+              <marker date="1622468617178" expanded="false" signature="3477:3487" ph=" }" />
+              <marker date="1622468617178" expanded="true" signature="3551:3651" ph="/**...*/" />
+              <marker date="1622468617178" expanded="true" signature="3719:3938" ph="{...}" />
+              <marker date="1622468617178" expanded="false" signature="3729:3731" ph="val" />
+              <marker date="1622468617178" expanded="true" signature="3974:4237" ph="{...}" />
+              <marker date="1622468617178" expanded="true" signature="4020:4231" ph="{...}" />
+              <marker date="1622468617178" expanded="true" signature="4294:4394" ph="/**...*/" />
+              <marker date="1622468617178" expanded="true" signature="4462:4889" ph="{...}" />
+              <marker date="1622468617178" expanded="true" signature="4472:4490" ph="val" />
+              <marker date="1622468617178" expanded="true" signature="4610:4616" ph="val" />
+              <marker date="1622468617178" expanded="true" signature="4946:5066" ph="{...}" />
+              <marker date="1622468617178" expanded="true" signature="5012:5060" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method01_1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method01.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#280#322#1" expanded="true" />
+            <element signature="e#331#385#1" expanded="true" />
+            <element signature="e#394#451#1" expanded="true" />
+            <element signature="e#460#477#0" expanded="true" />
+            <element signature="e#460#477#0" expanded="true" />
+            <element signature="e#579#593#0" expanded="true" />
+            <element signature="e#579#593#0" expanded="true" />
+            <element signature="e#606#681#0" expanded="true" />
+            <element signature="e#606#681#0" expanded="true" />
+            <element signature="e#1052#1075#0" expanded="true" />
+            <element signature="e#1052#1075#0" expanded="true" />
+            <element signature="e#1052#1075#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/jre/lib/rt.jar!/java/lang/Object.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/concurrent/CyclicBarrier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="292" column="11" lean-forward="false" selection-start-line="292" selection-start-column="11" selection-end-line="292" selection-end-column="11" />
+          <folding>
+            <element signature="e#9581#9582#0" expanded="true" />
+            <element signature="e#9616#9617#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/concurrent/BrokenBarrierException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="47" column="13" lean-forward="false" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method02.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="26" column="17" lean-forward="true" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+          <folding>
+            <element signature="e#380#437#1" expanded="true" />
+            <element signature="e#446#513#1" expanded="true" />
+            <element signature="e#522#958#1" expanded="true" />
+            <element signature="e#657#688#0" expanded="true" />
+            <element signature="e#967#984#0" expanded="true" />
+            <element signature="e#967#984#0" expanded="true" />
+            <element signature="e#1197#1198#0" expanded="true" />
+            <element signature="e#1254#1255#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method03.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="29" column="33" lean-forward="true" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/concurrent/CompletableFuture.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="1636" column="42" lean-forward="true" selection-start-line="1636" selection-start-column="42" selection-end-line="1636" selection-end-column="42" />
+          <folding>
+            <element signature="e#69562#69563#0" expanded="true" />
+            <element signature="e#69619#69620#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method07.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="14" column="42" lean-forward="true" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+        <state relative-caret-position="38">
+          <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
           <folding>
             <element signature="e#167#195#1" expanded="true" />
-            <element signature="e#425#508#0" expanded="true" />
-            <element signature="e#425#508#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method06.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#327#394#1" expanded="true" />
+            <element signature="e#465#495#1" expanded="true" />
+            <element signature="e#619#692#0" expanded="true" />
+            <element signature="e#619#692#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method04.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#290#360#1" expanded="true" />
+            <element signature="e#411#486#0" expanded="true" />
+            <element signature="e#411#486#0" expanded="true" />
+            <element signature="e#660#661#0" expanded="true" />
+            <element signature="e#717#718#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/week4/task2/Method05.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#200#216#1" expanded="true" />
+            <element signature="e#225#242#0" expanded="true" />
+            <element signature="e#225#242#0" expanded="true" />
+            <element signature="e#309#384#0" expanded="true" />
+            <element signature="e#309#384#0" expanded="true" />
           </folding>
         </state>
       </provider>

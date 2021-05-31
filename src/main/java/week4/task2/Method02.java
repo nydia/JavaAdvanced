@@ -2,6 +2,8 @@ package week4.task2;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @Auther: hqlv
@@ -10,27 +12,30 @@ import java.util.concurrent.CyclicBarrier;
  */
 public class Method02 {
     public static void main(String[] args) {
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(1);
-        Thread t = new Thread(new MyThread(cyclicBarrier));
+        final AtomicInteger atomicInteger = new AtomicInteger(1);
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(5, new MyThread());
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    atomicInteger.getAndIncrement();
+                    cyclicBarrier.await();
+                }catch (InterruptedException e){
+                    e.printStackTrace();
+                }catch (BrokenBarrierException e){
+                    e.printStackTrace();
+                }
+            }
+        });
+        t.setDaemon(true);
         t.start();
-        cyclicBarrier.reset();
-
+        System.out.println(atomicInteger.get());
+        cyclicBarrier.reset();//打破当前屏障并且重置新屏障
     }
     static class MyThread implements Runnable{
-        private CyclicBarrier cyclicBarrier;
-        public MyThread(CyclicBarrier cyclicBarrier){
-            this.cyclicBarrier = cyclicBarrier;
-        }
         @Override
         public void run() {
-            try {
-                this.cyclicBarrier.await();
-            }catch (InterruptedException e){
-                e.printStackTrace();
-            }catch (BrokenBarrierException e){
-                e.printStackTrace();
-            }
-            System.out.println("hello......");
+            System.out.println("你好主线程，我是子线程");
         }
     }
 }

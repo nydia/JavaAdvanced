@@ -14,7 +14,7 @@ public class Method03 {
     public static void main(String[] args) {
         Future future = executorService.submit(new MyThread());
         try {
-            future.get();
+            System.out.println(future.get());
         }catch (InterruptedException e){
             e.printStackTrace();
         }catch (ExecutionException e){
@@ -23,12 +23,11 @@ public class Method03 {
             executorService.shutdownNow();
         }
     }
-    static class MyThread implements Callable<Map>{
+    static class MyThread implements Callable<String>{
         @Override
-        public Map call() throws Exception {
-            Map map = new ConcurrentHashMap();
+        public String call() throws Exception {
             System.out.println("hello......");
-            return map;
+            return "你好主线程，我是子线程";
         }
     }
 }

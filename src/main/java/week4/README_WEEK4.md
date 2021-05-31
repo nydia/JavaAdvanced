@@ -1,6 +1,6 @@
 # 第四周作业
 
-#### 作业2：
+#### 作业2：在 main 函数启动一个新线程，运行一个方法，拿到这个方法的返回值后，退出主线程?
 
 1.方法1：当前线程执行CountDownLatch.await(),等所有子线程执行CountDownLatch.countDown()之后在执行
 
