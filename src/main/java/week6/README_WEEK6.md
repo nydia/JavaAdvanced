@@ -1,3 +1,4 @@
+```sql
 /* 商品 Table structure for table `geek_good` */
 
 DROP TABLE IF EXISTS `geek_good`;
@@ -91,3 +92,4 @@ CREATE TABLE `geek_user` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='用户';
 
+```
