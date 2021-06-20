@@ -3,13 +3,17 @@
 ## 第七周作业
 
 ### 作业答案目录
+1. 作业2: https://github.com/nydia/JavaAdvanced/tree/main/mysqlInsert
 
-1. 作业9: https://github.com/nydia/JavaAdvanced/tree/main/mysqlMasterSlaveV1
+2. 作业9: https://github.com/nydia/JavaAdvanced/tree/main/mysqlMasterSlaveV1
 
-2. 作业10: https://github.com/nydia/JavaAdvanced/tree/main/mysqlMasterSlaveV2
+3. 作业10: https://github.com/nydia/JavaAdvanced/tree/main/mysqlMasterSlaveV2
 
 
 ### 作业简介
+
+#### 第二题
+
 
 #### 第九题
 
