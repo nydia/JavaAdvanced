@@ -8,8 +8,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * 启动类
- *
- * @author ips
  */
 @EnableTransactionManagement
 @SpringBootApplication
