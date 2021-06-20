@@ -1,0 +1,44 @@
+server:
+  port: 8080
+
+spring:
+  main: #允许相同bean名称覆盖
+    allow-bean-definition-overriding: true
+  shardingsphere:
+    datasource:
+      names: db0,db1
+      db0:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3316/db?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+        username: root
+        password:
+        type: com.alibaba.druid.pool.DruidDataSource
+
+      db1:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3326/db?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+        username: root
+        password:
+        type: com.alibaba.druid.pool.DruidDataSource
+
+
+    sharding:
+      ##配置默认数据源 主要用于写
+      default-data-source-name: db0
+    masterslave:
+      name: ms
+      #配置主库 主要用于写 只可以配置一个
+      master-data-source-name: db0
+      #配置主库 主要用于读取 可以配置多个
+      slave-data-source-names: db1
+      load-balance-algorithm-type: round_robin
+    props:
+      sql:
+        show: true
+
+# mybatis-plus配置
+mybatis-plus:
+  mapper-locations: classpath*:/mappers/*.xml
+  configuration:
+    call-setters-on-nulls: true
+  type-aliases-package: com.nydia.modules.entity

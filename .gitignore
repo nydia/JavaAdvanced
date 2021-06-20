@@ -24,3 +24,10 @@ hs_err_pid*
 
 # idea
 bin/
+/.idea/
+/JavaAdvanced/.idea/
+/JavaAdvanced/target/
+/mysqlMasterSlaveV1/.idea/
+/mysqlMasterSlaveV1/target/
+/mysqlMasterSlaveV2/.idea/
+/mysqlMasterSlaveV2/target/
