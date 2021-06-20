@@ -1,0 +1,74 @@
+server:
+  port: 8080
+  session:
+    timeout: 7200
+
+##spring Setting
+spring:
+    application:
+        name: mysqldemo
+
+master-db:
+  datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      url: jdbc:mysql://localhost:3316/db?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+      username: root
+      password:
+      initial-size: 2
+      max-active: 50
+      min-idle: 5
+      max-wait: 60000 # 60s
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20
+      validation-query: SELECT 'x' FROM DUAL
+      validation-query-timeout: 60 # 60s
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 60000
+      max-evictable-idle-time-millis: 90000
+      filters: stat,wall
+      # WebStatFilter配置，说明请参考Druid Wiki，配置_配置WebStatFilter
+      web-stat-filter:
+        enabled: true
+      stat-view-servlet:
+        enabled: true
+        reset-enable: false
+        login-username: druid
+        login-password: druid
+
+slave1-db:
+  datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      url: jdbc:mysql://localhost:3326/db?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+      username: root
+      password:
+      initial-size: 2
+      max-active: 50
+      min-idle: 5
+      max-wait: 60000 # 60s
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20
+      validation-query: SELECT 'x' FROM DUAL
+      validation-query-timeout: 60 # 60s
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 60000
+      max-evictable-idle-time-millis: 90000
+      filters: stat,wall
+      # WebStatFilter配置，说明请参考Druid Wiki，配置_配置WebStatFilter
+      web-stat-filter:
+        enabled: true
+      stat-view-servlet:
+        enabled: true
+        reset-enable: false
+        login-username: druid
+        login-password: druid
+
+
+### 日志配置
+log:
+  level: debug
