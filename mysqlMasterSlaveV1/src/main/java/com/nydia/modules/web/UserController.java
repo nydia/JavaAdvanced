@@ -21,7 +21,7 @@ public class UserController {
     private IUserService userService;
 
     @RequestMapping(value = "/user", method = {RequestMethod.GET, RequestMethod.POST})
-    public ResponseEntity handleUser(){
+    public ResponseEntity handleUser() {
         User userInsert = new User();
         userInsert.setUserName("王五");
         userInsert.setNickName("小五");
@@ -29,7 +29,7 @@ public class UserController {
         userInsert.setIdCard("34112");
         userService.insertUser(userInsert);
 
-        User user = userService.selectUser(null);
+        User user = userService.findUser(null);
 
         return ResponseEntity.ok(JSON.toJSON(user));
     }

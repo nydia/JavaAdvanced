@@ -7,8 +7,7 @@ import com.nydia.modules.entity.User;
  */
 public interface IUserService {
 
-    User insertUser(User user);
+     int insertUser(User user);
 
-    User selectUser(User user);
-
+     User findUser(User user);
 }

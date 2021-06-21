@@ -1,7 +1,8 @@
 package com.nydia.modules.service.impl;
 
+import com.nydia.modules.common.Slave1DataSource;
 import com.nydia.modules.entity.User;
-import com.nydia.modules.repository.UserRepository;
+import com.nydia.modules.mapper.UserDao;
 import com.nydia.modules.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,16 +11,17 @@ import org.springframework.stereotype.Service;
 public class UserService implements IUserService{
 
      @Autowired
-     private UserRepository userRepository;
+     private UserDao userDao;
 
      @Override
-     public User insertUser(User user){
-          return userRepository.save(user);
+     public int insertUser(User user){
+          return userDao.insertUser(user);
      }
 
+     @Slave1DataSource
      @Override
-     public User selectUser(User user){
-          return userRepository.selectUser(user).get(0);
+     public User findUser(User user){
+          return userDao.findUser(user).get(0);
      }
 
 }
