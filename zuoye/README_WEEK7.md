@@ -148,12 +148,60 @@ CREATE TABLE `geek_user` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='用户';
 ~~~
+(2). 主要配置
 
-(2). 运行项目
+```yaml
+server:
+  port: 8080
 
-(3). 执行方法： curl http://localhost:8080/user
+spring:
+  main: #允许相同bean名称覆盖
+    allow-bean-definition-overriding: true
+  shardingsphere:
+    datasource:
+      names: db0,db1
+      db0:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3316/db?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+        username: root
+        password:
+        type: com.alibaba.druid.pool.DruidDataSource
 
-(2). 观察结果：
+      db1:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3326/db?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+        username: root
+        password:
+        type: com.alibaba.druid.pool.DruidDataSource
+
+
+    sharding:
+      ##配置默认数据源 主要用于写
+      default-data-source-name: db0
+    masterslave:
+      name: ms
+      #配置主库 主要用于写 只可以配置一个
+      master-data-source-name: db0
+      #配置主库 主要用于读取 可以配置多个
+      slave-data-source-names: db1
+      load-balance-algorithm-type: round_robin
+    props:
+      sql:
+        show: true
+
+# mybatis-plus配置
+mybatis-plus:
+  mapper-locations: classpath*:/mappers/*.xml
+  configuration:
+    call-setters-on-nulls: true
+  type-aliases-package: com.nydia.modules.entity
+```
+
+(3). 运行项目
+
+(4). 执行方法： curl http://localhost:8080/user
+
+(5). 观察结果：
 
 ~~~log
 2021-06-20 18:03:34.443  INFO 36712 --- [nio-8080-exec-1] ShardingSphere-SQL                       : Rule Type: master-slave
