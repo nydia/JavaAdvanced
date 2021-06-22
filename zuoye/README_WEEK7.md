@@ -31,6 +31,87 @@
 
 地址：https://github.com/nydia/JavaAdvanced/blob/main/mysqlInsert/src/test/java/com/nydia/modules/test/InsertDataTest.java
 
+主要代码
+
+```java
+    //4.1. data:100w,方式： Jdbc+PreparedStatement(url + rewriteBatchedStatements=true) + Druid(20) + 20线程 ====> 7s
+    @SuppressWarnings("Duplicates")
+    public void insertByJdbcInPreparedStatementV2(){
+        ExecutorService executorService = Executors.newFixedThreadPool(20);
+        List<Future<Object>> futureList = new ArrayList<>();
+        DruidDataSource dataSource = getDataSource();
+        long startTime = new Date().getTime();
+        for(int i = 1; i<= 20; i ++){
+            Future<Object> future = executorService.submit(new Callable<Object>() {
+                public Object call(){
+                    Connection conn = null;
+                    PreparedStatement pstm = null;
+                    try{
+                        conn = dataSource.getConnection();//使用连接池
+                        conn.setAutoCommit(false);
+                        System.out.println("实例化PreparedStatement对象...");
+                        pstm = conn.prepareStatement("insert into `db` ( `username`) values('1')");
+                        for(int i = 1; i <= 50000; i ++){
+                            // 将一组参数添加到此 PreparedStatement 对象的批处理命令中。
+                            pstm.addBatch();
+                            if(i % 10000 == 0){
+                                pstm.executeBatch();
+                                conn.commit();//执行完后，手动提交事务
+                                pstm.clearBatch();
+                                System.out.println("执行到" + i);
+                            }
+                        }
+                    }catch(SQLException se){
+                        se.printStackTrace();// 处理 JDBC 错误
+                    }catch(Exception e){
+                        e.printStackTrace();// 处理 Class.forName 错误
+                    }finally{
+                        try{
+                            conn.setAutoCommit(true);
+                            if(pstm!=null) pstm.close();// 关闭资源
+                            if(conn!=null) conn.close();// 关闭资源
+                        }catch(SQLException se2){
+                        }
+                    }
+                    return null;
+                }
+            });
+            futureList.add(future);
+        }
+        for(Future<Object> f: futureList){
+            try {
+                f.get();
+            }catch (InterruptedException e){
+            }catch (ExecutionException e){}
+        }
+        long endTime = new Date().getTime();
+        dataSource.close();
+        executorService.shutdown();
+        System.out.println("执行时间：" + (endTime - startTime) + "(毫秒)");
+        System.out.println("Goodbye!");
+    }
+    
+    public DruidDataSource getDataSource(){
+        DruidDataSource dataSource = new DruidDataSource();
+        dataSource.setUrl("jdbc:mysql://localhost:3316/db?rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai");
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setUsername("root");
+        dataSource.setPassword("");
+
+        dataSource.setInitialSize(20);//初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次getConnection时
+        dataSource.setMinIdle(5);//最小连接池数量
+        dataSource.setMaxWait(60000);//获取连接时最大等待时间，单位毫秒
+        dataSource.setMaxActive(20);//最大连接池数量
+
+        try {
+            dataSource.init();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return dataSource;
+    }
+```
+
 
 
 #### 第九题
