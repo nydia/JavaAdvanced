@@ -28,7 +28,7 @@
 
 #### 第九题
 
-##### 单元测试类： com.nydia.modules.UnitTest
+##### 单元测试类： com.nydia.modules.UnitTest （https://github.com/nydia/JavaAdvanced/blob/main/mysqlMasterSlaveV1/src/test/java/com/nydia/modules/UnitTest.java）
 
 ##### 主要思路
 
