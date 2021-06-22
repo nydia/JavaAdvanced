@@ -37,7 +37,7 @@ public class InsertDataTest {
         insertByJdbcInPreparedStatementV3();
     }
 
-    //1. Spring框架+Druid+单线程
+    //1. data:100w,方式： Spring框架+Druid+单线程
     public void insertDataByDruidInSingleThread() {
         runTime.set(new Date().getTime());
         for (int i = 0; i < 1000000; i++) {
@@ -51,7 +51,7 @@ public class InsertDataTest {
         System.out.println("执行时间1000000次插入的时间：" + (new Date().getTime() - runTime.get()) + "（毫秒）");
     }
 
-    //2. Spring框架+Druid+100个线程
+    //2. data:100w,方式： Spring框架+Druid+100个线程
     public void insertDataByDruidIn100Thread() {
         runTime.set(new Date().getTime());
         ExecutorService executorService = Executors.newFixedThreadPool(100);
@@ -77,7 +77,7 @@ public class InsertDataTest {
         System.out.println("执行时间1000000次插入的时间：" + (new Date().getTime() - runTime.get()) + "（毫秒）");
     }
 
-    //3. Jdbc+Statement + (url带rewriteBatchedStatements=true)
+    //3. data:100w,方式： Jdbc+Statement + (url带rewriteBatchedStatements=true)
     @SuppressWarnings("Duplicates")
     public void insertByJdbcInStatement(){
         final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -146,7 +146,7 @@ public class InsertDataTest {
         System.out.println("Goodbye!");
     }
 
-    //3.1. Jdbc+Statement + (url带rewriteBatchedStatements=true) + Druid(10) + 10线程
+    //3.1. data:100w,方式： Jdbc+Statement + (url带rewriteBatchedStatements=true) + Druid(10) + 10线程
     @SuppressWarnings("Duplicates")
     public void insertByJdbcInStatementV2(){
         ExecutorService executorService = Executors.newFixedThreadPool(10);
@@ -204,7 +204,7 @@ public class InsertDataTest {
         System.out.println("Goodbye!");
     }
 
-    //3.2. Jdbc+Statement + (url带rewriteBatchedStatements=true) + Druid(20) + 20线程
+    //3.2. data:100w,方式： Jdbc+Statement + (url带rewriteBatchedStatements=true) + Druid(20) + 20线程
     @SuppressWarnings("Duplicates")
     public void insertByJdbcInStatementV3(){
         ExecutorService executorService = Executors.newFixedThreadPool(20);
@@ -260,7 +260,7 @@ public class InsertDataTest {
         System.out.println("Goodbye!");
     }
 
-    //4. Jdbc+PreparedStatement(url + rewriteBatchedStatements=true)
+    //4. data:100w,方式： Jdbc+PreparedStatement(url + rewriteBatchedStatements=true)
     @SuppressWarnings("Duplicates")
     public void insertByJdbcInPreparedStatement(){
         final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -320,7 +320,7 @@ public class InsertDataTest {
         System.out.println("Goodbye!");
     }
 
-    //4.1. Jdbc+PreparedStatement(url + rewriteBatchedStatements=true) + Druid(20) + 20线程 ====> 7s
+    //4.1. data:100w,方式： Jdbc+PreparedStatement(url + rewriteBatchedStatements=true) + Druid(20) + 20线程 ====> 7s
     @SuppressWarnings("Duplicates")
     public void insertByJdbcInPreparedStatementV2(){
         ExecutorService executorService = Executors.newFixedThreadPool(20);
@@ -377,7 +377,7 @@ public class InsertDataTest {
         System.out.println("Goodbye!");
     }
 
-    //4.2. Jdbc+PreparedStatement(url + rewriteBatchedStatements=true) + Druid(1) + 1线程
+    //4.2. data:100w,方式： Jdbc+PreparedStatement(url + rewriteBatchedStatements=true) + Druid(1) + 1线程
     @SuppressWarnings("Duplicates")
     public void insertByJdbcInPreparedStatementV3(){
         ExecutorService executorService = Executors.newFixedThreadPool(1);
