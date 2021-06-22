@@ -33,8 +33,10 @@ public class InsertDataTest {
         //insertByJdbcInStatementV2();
         //insertByJdbcInStatementV3();
         //insertByJdbcInPreparedStatement();
-        //insertByJdbcInPreparedStatementV2();
-        insertByJdbcInPreparedStatementV3();
+        insertByJdbcInPreparedStatementV2();
+        //insertByJdbcInPreparedStatementV3();
+        //insertByJdbcInPreparedStatementV3();
+        //insertByJdbcInPreparedStatementV4();
     }
 
     //1. data:100w,方式： Spring框架+Druid+单线程
@@ -434,6 +436,64 @@ public class InsertDataTest {
         System.out.println("Goodbye!");
     }
 
+    //4.3. data:1000w,方式： Jdbc+PreparedStatement(url + rewriteBatchedStatements=true) + Druid(20) + 20线程
+    @SuppressWarnings("Duplicates")
+    public void insertByJdbcInPreparedStatementV4(){
+        ExecutorService executorService = Executors.newFixedThreadPool(20);
+        List<Future<Object>> futureList = new ArrayList<>();
+        DruidDataSource dataSource = getDataSource();
+        long startTime = new Date().getTime();
+        for(int i = 1; i<= 20; i ++){
+            Future<Object> future = executorService.submit(new Callable<Object>() {
+                public Object call(){
+                    Connection conn = null;
+                    PreparedStatement pstm = null;
+                    try{
+                        conn = dataSource.getConnection();//使用连接池
+                        conn.setAutoCommit(false);
+                        System.out.println("实例化PreparedStatement对象...");
+                        //pstm = conn.prepareStatement("insert into `db` ( `username`) values('1')");
+                        pstm = conn.prepareStatement("insert into `geek_user` ( `user_name`, `password`, `nick_name`, `id_card`) values('王五','123456','小五','2344556666')");
+                        for(int i = 1; i <= 500000; i ++){
+                            // 将一组参数添加到此 PreparedStatement 对象的批处理命令中。
+                            pstm.addBatch();
+                            if(i % 10000 == 0){
+                                pstm.executeBatch();
+                                conn.commit();//执行完后，手动提交事务
+                                pstm.clearBatch();
+                                System.out.println("执行到" + i);
+                            }
+                        }
+                    }catch(SQLException se){
+                        se.printStackTrace();// 处理 JDBC 错误
+                    }catch(Exception e){
+                        e.printStackTrace();// 处理 Class.forName 错误
+                    }finally{
+                        try{
+                            conn.setAutoCommit(true);
+                            if(pstm!=null) pstm.close();// 关闭资源
+                            if(conn!=null) conn.close();// 关闭资源
+                        }catch(SQLException se2){
+                        }
+                    }
+                    return null;
+                }
+            });
+            futureList.add(future);
+        }
+        for(Future<Object> f: futureList){
+            try {
+                f.get();
+            }catch (InterruptedException e){
+            }catch (ExecutionException e){}
+        }
+        long endTime = new Date().getTime();
+        dataSource.close();
+        executorService.shutdown();
+        System.out.println("执行时间：" + (endTime - startTime) + "(毫秒)");
+        System.out.println("Goodbye!");
+    }
+
     // ========== 连接池 ==============
     public DruidDataSource getDataSource(){
         DruidDataSource dataSource = new DruidDataSource();
@@ -447,10 +507,16 @@ public class InsertDataTest {
         //dataSource.setUsername("repl");
         //dataSource.setPassword("@Zz123456");
 
-        dataSource.setInitialSize(20);
-        dataSource.setMinIdle(5);
-        dataSource.setMaxWait(60000);
-        dataSource.setMaxActive(20);
+        dataSource.setInitialSize(20);//初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次getConnection时
+        dataSource.setMinIdle(5);//最小连接池数量
+        dataSource.setMaxWait(60000);//获取连接时最大等待时间，单位毫秒
+        dataSource.setMaxActive(20);//最大连接池数量
+
+        try {
+            dataSource.init();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
         return dataSource;
     }
 
