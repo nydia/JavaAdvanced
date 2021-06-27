@@ -1,10 +1,10 @@
 package com.nydia.modules.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.nydia.modules.entity.Order;
+import com.nydia.modules.entity.OrderItem;
 import org.springframework.stereotype.Component;
 
-@Component("orderDao")
-public interface OrderDao extends BaseMapper<Order>{
+@Component("orderItemDao")
+public interface OrderItemDao extends BaseMapper<OrderItem>{
 
 }

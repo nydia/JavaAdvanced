@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import java.io.Serializable;
@@ -16,16 +15,19 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@TableName("t_order")
-public class Order implements Serializable{
-    @TableId(value = "order_id", type = IdType.AUTO)
+@TableName("t_order_item")
+public class OrderItem implements Serializable{
+    @TableId(value = "order_item_id", type = IdType.AUTO)
+    private Long orderItemId;
+
+    @TableField(value = "order_id")
     private Long orderId;
-    @TableField(value = "order_no")
-    private String orderNo;
-    @TableField(value = "amount")
-    private BigDecimal amount;
-    @TableField(value = "status")
-    private String status;
+    @TableField(value = "good_id")
+    private Long goodId;
+    @TableField(value = "good_name")
+    private String goodName;
+    @TableField(value = "price")
+    private BigDecimal price;
     @TableField(value = "user_id")
     private Long userId;
     @TableField(value = "create_date")

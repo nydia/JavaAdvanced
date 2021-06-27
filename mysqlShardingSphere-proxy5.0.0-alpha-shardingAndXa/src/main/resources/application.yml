@@ -4,7 +4,8 @@ spring:
   datasource:
      driver-class-name: com.mysql.jdbc.Driver
      # proxy 地址和密码
-     url: jdbc:mysql://localhost:3308/readwrite_splitting_db?useServerPrepStmts=true&cachePrepStmts=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+     #url: jdbc:mysql://localhost:3308/sharding_db?rewriteBatchedStatements=true&useServerPrepStmts=true&cachePrepStmts=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+     url: jdbc:mysql://localhost:3308/sharding_db?autoReconnect=true&failOverReadOnly=false&maxReconnects=10&serverTimezone=Asia/Shanghai
      username: root
      password: root
      type: com.zaxxer.hikari.HikariDataSource
