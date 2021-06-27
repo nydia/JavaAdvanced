@@ -4,7 +4,7 @@
 
 
 ### 1. 作业答案目录
-1. 作业2单元测试文件目录: https://github.com/nydia/JavaAdvanced/tree/main/mysqlInsert
+1. 作业2单元测试文件目录: https://github.com/nydia/JavaAdvanced/blob/main/mysqlShardingSphere-proxy5.0.0-alpha-shardingAndXa/src/test/java/com/nydia/modules/test/ShardingTest.java
 2. 作业6单元测试文件目录: https://github.com/nydia/JavaAdvanced/tree/main/mysqlInsert
 
 ### 2. 作业简介
