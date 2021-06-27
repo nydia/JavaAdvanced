@@ -25,18 +25,11 @@ public class XaTest {
     @Test
     public void testXaInsert() {
         for(int i = 0; i < 1; i ++){
-//            OrderItem orderItem = new OrderItem();
-//            orderItem.setGoodName("111ce");
-//            orderItem.setGoodId(1L);
-//            orderItem.setOrderId(new Date().getTime());
-//            orderItem.setUserId(1L);
-//            orderItem.setPrice();
             try {
                 Thread.sleep(1);
             }catch (Exception e){
                 e.printStackTrace();
             }
-//            orderItemService.insert(orderItem);
             orderItemService.insert(OrderItem.builder().goodName("商品").goodId(1L).orderId(new Date().getTime()).price(new BigDecimal(3.21)).userId(1L).build());
         }
     }

@@ -4,9 +4,8 @@
 
 
 ### 1. 作业答案目录
-1. 作业2: https://github.com/nydia/JavaAdvanced/tree/main/mysqlInsert
-
-2. 作业6: https://github.com/nydia/JavaAdvanced/tree/main/mysqlMasterSlaveV1
+1. 作业2单元测试文件目录: https://github.com/nydia/JavaAdvanced/tree/main/mysqlInsert
+2. 作业6单元测试文件目录: https://github.com/nydia/JavaAdvanced/tree/main/mysqlInsert
 
 ### 2. 作业简介
 
