@@ -1,0 +1,17 @@
+server:
+  port: 8080
+spring:
+  datasource:
+     driver-class-name: com.mysql.jdbc.Driver
+     # proxy 地址和密码
+     #url: jdbc:mysql://localhost:3308/sharding_db?rewriteBatchedStatements=true&useServerPrepStmts=true&cachePrepStmts=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+     url: jdbc:mysql://localhost:3308/sharding_db?autoReconnect=true&failOverReadOnly=false&maxReconnects=10&serverTimezone=Asia/Shanghai
+     username: root
+     password: root
+     type: com.zaxxer.hikari.HikariDataSource
+# mybatis-plus配置
+mybatis-plus:
+  mapper-locations: classpath*:/mappers/*.xml
+  configuration:
+    call-setters-on-nulls: true # mybatis空字段返回null
+  type-aliases-package: com.nydia.modules.entity
