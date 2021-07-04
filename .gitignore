@@ -27,6 +27,8 @@ bin/
 /.idea/
 /JavaAdvanced/.idea/
 /JavaAdvanced/target/
+/mysqlInsert/.idea/
+/mysqlInsert/target/
 /mysqlMasterSlaveV1/.idea/
 /mysqlMasterSlaveV1/target/
 /mysqlMasterSlaveV2/.idea/
