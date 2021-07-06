@@ -322,7 +322,7 @@ insert into `account_freeze` (`id`, `user_id`, `account_no`, `account_type`, `fr
 
 项目分模块：
 - hmily-tcc-dubbo-account-a 账户A，连接A库，包含账户A表，冻结表A。提供账户服务A：accountServiceA 
-- hmily-tcc-dubbo-account-b 账户B，连接B库，包含账户B表，冻结表B。提供账户服务A：accountServiceB
+- hmily-tcc-dubbo-account-b 账户B，连接B库，包含账户B表，冻结表B。提供账户服务B：accountServiceB
 - hmily-tcc-dubbo-account-common 账户和冻结公用的实体，mapper，和service接口
 - hmily-tcc-dubbo-account-settle 结算模块：负责转账的发起,通过dubbo分别调用账户A和账号B服务。账户A和账号B的转账由结算中心发起，在账户A系统和账户B系统里面处理，并采用hmily的tcc协议模式保证分布式事务的一致性
 
