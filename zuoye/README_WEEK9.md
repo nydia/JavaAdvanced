@@ -32,6 +32,7 @@ Object service = resolver.resolve(serviceClass);
 ~~~
 
 (2) 尝试将客户端动态代理改成 AOP，添加异常处理；
+
 (3) 尝试使用 Netty+HTTP 作为 client 端传输方式。
 
 原有：
