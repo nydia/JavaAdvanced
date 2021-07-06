@@ -5,7 +5,12 @@
 
 ### 作业答案目录
 1. 作业3
+
+
+
 2. 作业7
+
+https://github.com/nydia/JavaAdvanced/tree/main/hmily-tcc-dubbo
 
 
 ### 作业详细
