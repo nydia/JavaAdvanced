@@ -1,73 +1,82 @@
 package io.kimmking.rpcfx.nettyclient;
 
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelFutureListener;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.handler.codec.http.DefaultFullHttpResponse;
-import io.netty.handler.codec.http.FullHttpRequest;
-import io.netty.handler.codec.http.FullHttpResponse;
-import io.netty.handler.codec.http.HttpUtil;
+import io.netty.channel.ChannelPromise;
+import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.handler.codec.http.*;
 import io.netty.util.CharsetUtil;
 import io.netty.util.ReferenceCountUtil;
+import org.apache.commons.lang.StringUtils;
 
-import static io.netty.handler.codec.http.HttpHeaderNames.CONNECTION;
-import static io.netty.handler.codec.http.HttpHeaderValues.KEEP_ALIVE;
-import static io.netty.handler.codec.http.HttpResponseStatus.NO_CONTENT;
-import static io.netty.handler.codec.http.HttpResponseStatus.OK;
-import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
+public class HttpHandler extends SimpleChannelInboundHandler<HttpObject> {
 
-public class HttpHandler extends ChannelInboundHandlerAdapter {
-    
+    private ChannelPromise channelPromise;
+
+    private StringBuffer jsonBuilder = new StringBuffer();
+
+    private StringBuffer failBuilder = new StringBuffer();
+
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
         ctx.flush();
     }
 
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) {
+    public void channelRead0(ChannelHandlerContext channelHandlerContext, HttpObject httpObject) {
         try {
-            //传来的消息包装成字节缓冲区
-           ByteBuf byteBuf = (ByteBuf) msg;
-           //Netty提供了字节缓冲区的toString方法，并且可以设置参数为编码格式：CharsetUtil.UTF_8
-           System.out.println("服务器端发来的消息：" + byteBuf.toString(CharsetUtil.UTF_8));
+            HttpContent chunk = (HttpContent) httpObject;
+            if (chunk instanceof LastHttpContent) {
+                ByteBuf content = chunk.content();
+                String json = content.toString(CharsetUtil.UTF_8);
+                jsonBuilder.append(json);
+                channelPromise.setSuccess();
+            } else {
+                ByteBuf content = chunk.content();
+                String json = content.toString(CharsetUtil.UTF_8);
+                jsonBuilder.append(json);
+            }
         } catch(Exception e) {
             e.printStackTrace();
+            String message = e.getCause() != null ? e.getCause().getMessage() : e.getMessage();
+            failBuilder.append(message);
         } finally {
-            ReferenceCountUtil.release(msg);
+            ReferenceCountUtil.release(httpObject);
         }
     }
-
-//    private void handlerResponse(FullHttpRequest fullRequest, ChannelHandlerContext ctx, String body) {
-//        FullHttpResponse response = null;
-//        try {
-//            String value = body; // 对接上次作业的httpclient或者okhttp请求另一个url的响应数据
-//
-//            response = new DefaultFullHttpResponse(HTTP_1_1, OK, Unpooled.wrappedBuffer(value.getBytes("UTF-8")));
-//            response.headers().set("Content-Type", "application/json");
-//            response.headers().setInt("Content-Length", response.content().readableBytes());
-//
-//        } catch (Exception e) {
-//            System.out.println("处理出错:"+e.getMessage());
-//            response = new DefaultFullHttpResponse(HTTP_1_1, NO_CONTENT);
-//        } finally {
-//            if (fullRequest != null) {
-//                if (!HttpUtil.isKeepAlive(fullRequest)) {
-//                    ctx.write(response).addListener(ChannelFutureListener.CLOSE);
-//                } else {
-//                    response.headers().set(CONNECTION, KEEP_ALIVE);
-//                    ctx.write(response);
-//                }
-//                ctx.flush();
-//            }
-//        }
-//    }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
         cause.printStackTrace();
         ctx.close();
+    }
+
+    public static Object call(HttpRequest request,Channel channel) throws Exception {
+        HttpHandler handler = (HttpHandler) channel.pipeline().get("handler");
+        ChannelPromise channelPromise = channel.newPromise();
+        handler.setChannelPromise(channelPromise);
+        channel.write(request);
+        channel.flush();
+        channelPromise.await();
+        String failResult = handler.getFailResult();
+        String result = handler.getResult();
+        if (!StringUtils.isNotBlank(failResult)) {
+            throw new RuntimeException(failResult);
+        }
+        return result;
+    }
+
+    public void setChannelPromise(ChannelPromise channelPromise) {
+        this.channelPromise = channelPromise;
+    }
+
+    public String getResult() {
+        return jsonBuilder.toString();
+    }
+
+    public String getFailResult() {
+        return failBuilder.toString();
     }
 
 }

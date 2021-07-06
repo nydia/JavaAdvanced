@@ -36,12 +36,184 @@ Object service = resolver.resolve(serviceClass);
 
 原有：
 ~~~java
-
+OkHttpClient client = new OkHttpClient();
+final Request request = new Request.Builder()
+        .url(url)
+        .post(RequestBody.create(JSONTYPE, reqJson))
+        .build();
+String respJson = client.newCall(request).execute().body().string();
 ~~~
 
 改造之后：
+
+HttpClient.java:
+~~~java
+public class HttpClient {
+
+    private EventLoopGroup group = new NioEventLoopGroup();
+    public Bootstrap b = new Bootstrap();
+
+    public HttpDataFactory factory = new DefaultHttpDataFactory(DefaultHttpDataFactory.MINSIZE);
+
+    public HttpClient() {
+        try {
+            b.group(group).channel(NioSocketChannel.class)
+                    .handler(new HttpInitializer(new HttpHandler()));
+        } catch (Exception e) {
+            e.printStackTrace();
+            group.shutdownGracefully();
+            factory.cleanAllHttpData();
+        }
+    }
+
+    /**
+     * 发送json
+     */
+    public String doPostJson(String url, String json) {
+        try {
+            //链接uri
+            URI uriSimple = new URI(url);
+            //主机地址
+            String host = uriSimple.getHost();
+            //端口
+            Integer port = uriSimple.getPort();
+            //建立频道
+            Channel channel = b.connect(host, port).sync().channel();
+            //把json转为netty的bytebuf
+            ByteBuf buf = copiedBuffer(json, CharsetUtil.UTF_8);
+            //获取fuulhttprequest (请求头、请求body)
+            DefaultFullHttpRequest request = new DefaultFullHttpRequest(HttpVersion.HTTP_1_1,
+                    HttpMethod.POST, uriSimple.toASCIIString());
+            //请求body写入bytebuf
+            request.content().writeBytes(buf);
+            //设置请求头
+            HttpHeaders headers = request.headers();
+            //设置content-type为json请求
+            headers.set(HttpHeaderNames.CONTENT_TYPE, "application/json");
+            //需要手动指定body长度
+            headers.setInt(HttpHeaderNames.CONTENT_LENGTH, request.content().readableBytes());
+
+            //调用请求
+            String resultjson = (String) HttpHandler.call(request, channel);
+            return resultjson;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            group.shutdownGracefully();
+            factory.cleanAllHttpData();
+            return errorResult(e);
+        }
+    }
+
+    private String errorResult(Exception e){
+        Map<String,String> msg = new HashMap<>();
+        msg.put("msg", e.getMessage());
+        return JSON.toJSONString(msg);
+    }
+
+
+}
+
 ~~~
 
+HttpInitializer.java:
+~~~java
+public class HttpInitializer extends ChannelInitializer<Channel> {
+
+	private SimpleChannelInboundHandler simpleChannelInboundHandler;
+
+	public HttpInitializer(SimpleChannelInboundHandler simpleChannelInboundHandler)throws Exception{
+		this.simpleChannelInboundHandler=simpleChannelInboundHandler;
+	}
+
+	@Override
+	public void initChannel(Channel channel) throws Exception {
+		ChannelPipeline pipeline = channel.pipeline();
+		CorsConfig corsConfig = CorsConfigBuilder.forAnyOrigin().allowNullOrigin().allowCredentials()
+				.build();
+		//客户端模式
+		pipeline.addLast("codec", new HttpClientCodec());
+		pipeline.addLast("inflater",new HttpContentDecompressor());
+		//大文件传输
+		pipeline.addLast("chunkedWriter", new ChunkedWriteHandler());
+		pipeline.addLast("handler",simpleChannelInboundHandler.getClass().newInstance());
+	}
+
+}
+~~~
+
+HttpHandler.java:
+
+~~~java
+public class HttpHandler extends SimpleChannelInboundHandler<HttpObject> {
+
+    private ChannelPromise channelPromise;
+
+    private StringBuffer jsonBuilder = new StringBuffer();
+
+    private StringBuffer failBuilder = new StringBuffer();
+
+    @Override
+    public void channelReadComplete(ChannelHandlerContext ctx) {
+        ctx.flush();
+    }
+
+    @Override
+    public void channelRead0(ChannelHandlerContext channelHandlerContext, HttpObject httpObject) {
+        try {
+            HttpContent chunk = (HttpContent) httpObject;
+            if (chunk instanceof LastHttpContent) {
+                ByteBuf content = chunk.content();
+                String json = content.toString(CharsetUtil.UTF_8);
+                jsonBuilder.append(json);
+                channelPromise.setSuccess();
+            } else {
+                ByteBuf content = chunk.content();
+                String json = content.toString(CharsetUtil.UTF_8);
+                jsonBuilder.append(json);
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+            String message = e.getCause() != null ? e.getCause().getMessage() : e.getMessage();
+            failBuilder.append(message);
+        } finally {
+            ReferenceCountUtil.release(httpObject);
+        }
+    }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+        cause.printStackTrace();
+        ctx.close();
+    }
+
+    public static Object call(HttpRequest request,Channel channel) throws Exception {
+        HttpHandler handler = (HttpHandler) channel.pipeline().get("handler");
+        ChannelPromise channelPromise = channel.newPromise();
+        handler.setChannelPromise(channelPromise);
+        channel.write(request);
+        channel.flush();
+        channelPromise.await();
+        String failResult = handler.getFailResult();
+        String result = handler.getResult();
+        if (!StringUtils.isNotBlank(failResult)) {
+            throw new RuntimeException(failResult);
+        }
+        return result;
+    }
+
+    public void setChannelPromise(ChannelPromise channelPromise) {
+        this.channelPromise = channelPromise;
+    }
+
+    public String getResult() {
+        return jsonBuilder.toString();
+    }
+
+    public String getFailResult() {
+        return failBuilder.toString();
+    }
+}
 ~~~
 
 #### 第7题  结合 dubbo+hmily，实现一个 TCC 外汇交易处理
