@@ -44,7 +44,7 @@ final Request request = new Request.Builder()
 String respJson = client.newCall(request).execute().body().string();
 ~~~
 
-改造之后：
+改造之后(使用netty client)：
 
 HttpClient.java:
 ~~~java
