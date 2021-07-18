@@ -1,0 +1,89 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    username: root
+    password:
+    url: jdbc:mysql://localhost:3316/db?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+  cache:
+    type: redis
+  redis:
+    #host: localhost
+    host: 192.168.8.186
+    port: 6379
+    password: Pwd@Iboxpay
+    lettuce:
+      pool:
+        max-active: 16
+        max-wait: 10ms
+
+#    type: ehcache
+#    ehcache:
+#      config: ehcache.xml
+
+
+  # hibernate配置
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      ## 缓存策略，总是缓存
+      javax:
+        persistence:
+          sharedCache:
+            mode: ALL
+      hibernate:
+        #dialect: org.hibernate.dialect.MySQL8Dialect
+        dialect: org.hibernate.dialect.MySQLDialect
+        cache:
+          # 关闭二级缓存
+          use_second_level_cache: true
+          use_query_cache: true
+          region:
+            #factory_class: org.hibernate.cache.EhCacheProvider
+            factory_class: org.hibernate.cache.redis.hibernate52.SingletonRedisRegionFactory
+          ## 缓存标示前缀
+          region_prefix: hibernate
+          ## 结构化缓存实体
+          use_structured_entries: true
+          ## 配置文件路径
+          provider_configuration_file_resource_path: classpath:hibernate-redis.properties
+      redisson-config: classpath:redisson.yaml
+      redis:
+        expiryInSeconds:
+          default: 120
+          hibernate:
+            common: 0
+            account: 1200
+    open-in-view: true
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: io.kimmking.cache.entity
+  configuration:
+    # 使全局的映射器启用或禁用缓存 默认true
+    # 使用二级缓存：
+    #     1. cache-enabled: true
+    #     2. mappering 文件里面设置：<cache type="org.mybatis.caches.ehcache.LoggingEhcache"><property name="memoryStoreEvictionPolicy" value="LRU"/></cache>
+    #     注：单独设置 cache-enabled: true 是不起作用的
+    cache-enabled: false
+    # 缓存的namespace 已经废弃
+    # cache-names:
+    #  - "io.kimmking.cache.mapper.OrderMapper"
+    # 一级缓存  设置本地缓存范围 session:就会有数据的共享  statement:语句范围 (这样就不会有数据的共享 ) defalut:session
+    local-cache-scope: session
+
+logging:
+  level:
+    io:
+      kimmking:
+        cache : debug
+  org:
+    hibernate:
+      type:
+        descriptor:
+          sql: TRACE
