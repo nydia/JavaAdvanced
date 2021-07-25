@@ -15,13 +15,11 @@
 2. make prefix=/opt/softs/redis install
 3. redis建立的日志根目录logs, 存储stores, 进程根目录pid（每个redis启动之后会生成一个pid文件，用于锁住进程）
 
-### redi主从
+### redis主从
 
 1. 配置
 - 主要配置参数：dir, pidfile, port, replicaof
 -	stores根目录下面建立：redis1 redis2
-
-
 
 2. 启动：
 - redis-server /opt/softs/redis/conf/redis-6379.conf
@@ -157,4 +155,75 @@ cluster_stats_messages_received:42265
 [root@e90dec803b8c conf]# redis-cli -p 7103 cluster replicate 977cd2b865e9292496d6bf75fd15300762849853
 OK
 ```
-## 第6题  搭建 ActiveMQ 服务，基于 JMS，写代码分别实现对于 queue 和 topic 的消息生产和消费，代码提交到 github
+## 第6题  搭建 ActiveMQ 服务，基于 JMS，写代码分别实现对于 queue 和 topic 的消息生产和消费
+
+### 创建queue和topic
+- activemq version: 5.16.2 单机
+- 创建queue: test.queue, 创建topic: test.topic
+
+### 利用jms 分别在queue和topic
+
+```java
+
+public class ActivemqApplication {
+
+    public static void main(String[] args) {
+
+        // 定义Destination
+        // Destination destination = new ActiveMQTopic("test.topic");
+        Destination destination = new ActiveMQQueue("test.queue");
+
+        testDestination(destination);
+
+        //SpringApplication.run(ActivemqApplication.class, args);
+    }
+
+    public static void testDestination(Destination destination) {
+        try {
+            // 创建连接和会话
+            ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory("tcp://127.0.0.1:61616");
+            ActiveMQConnection conn = (ActiveMQConnection) factory.createConnection();
+            conn.start();
+            Session session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
+
+            // 创建消费者
+            MessageConsumer consumer = session.createConsumer( destination );
+            final AtomicInteger count = new AtomicInteger(0);
+            MessageListener listener = new MessageListener() {
+                public void onMessage(Message message) {
+                    try {
+                        // 打印所有的消息内容
+                        // Thread.sleep();
+                        System.out.println(count.incrementAndGet() + " => receive from " + destination.toString() + ": " + message);
+                        // message.acknowledge(); // 前面所有未被确认的消息全部都确认。
+
+                    } catch (Exception e) {
+                        e.printStackTrace(); // 不要吞任何这里的异常，
+                    }
+                }
+            };
+            // 绑定消息监听器
+            consumer.setMessageListener(listener);
+
+            //consumer.receive()
+
+            // 创建生产者，生产100个消息
+            MessageProducer producer = session.createProducer(destination);
+            int index = 0;
+            while (index++ < 100) {
+                TextMessage message = session.createTextMessage(index + " message.");
+                producer.send(message);
+            }
+
+            Thread.sleep(20000);
+            session.close();
+            conn.close();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+```
