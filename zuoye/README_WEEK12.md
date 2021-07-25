@@ -7,7 +7,8 @@
 
 6.（必做）搭建 ActiveMQ 服务，基于 JMS，写代码分别实现对于 queue 和 topic 的消息生产和消费，代码提交到 github。
 
-## 第1题
+## 第1题  配置 redis 的主从复制，sentinel 高可用，Cluster 集群
+
 ### env : docker, redis6.2.5
 
 1. redis tar -zxvf
@@ -156,4 +157,4 @@ cluster_stats_messages_received:42265
 [root@e90dec803b8c conf]# redis-cli -p 7103 cluster replicate 977cd2b865e9292496d6bf75fd15300762849853
 OK
 ```
-## 第6题
+## 第6题  搭建 ActiveMQ 服务，基于 JMS，写代码分别实现对于 queue 和 topic 的消息生产和消费，代码提交到 github
