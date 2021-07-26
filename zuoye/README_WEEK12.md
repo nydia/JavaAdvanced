@@ -157,27 +157,115 @@ OK
 ```
 ## 第6题  搭建 ActiveMQ 服务，基于 JMS，写代码分别实现对于 queue 和 topic 的消息生产和消费
 
-### 创建queue和topic
-- activemq version: 5.16.2 单机
-- 创建queue: test.queue, 创建topic: test.topic
+### 第1种方式：启动一个嵌入式的java activemq服务
 
-### 利用jms 分别在queue和topic
+1. 启动embed嵌入式纯java activemq服务
 
 ```java
+import org.apache.activemq.broker.BrokerService;
+public class ActiveMQServer {
+    public static void main(String[] args) throws Exception{
+        // 尝试用java代码启动一个ActiveMQ broker server
+        // 然后用前面的测试demo代码，连接这个嵌入式的server
+        BrokerService brokerService = new BrokerService();
+        brokerService.addConnector("tcp://localhost:61616");
+        brokerService.setDataDirectory("C:\\temp");
+        brokerService.setUseShutdownHook(true);
+        brokerService.start();
+        //Thread.sleep(10000000);
+        // 关闭
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            public void run() {
+                try {
+                    brokerService.stop();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                System.exit(0);
+            }
+        });
+    }
+}
+···
 
+2. 服务的生产和消费
+
+```java
 public class ActivemqApplication {
-
     public static void main(String[] args) {
-
         // 定义Destination
         // Destination destination = new ActiveMQTopic("test.topic");
         Destination destination = new ActiveMQQueue("test.queue");
-
         testDestination(destination);
-
-        //SpringApplication.run(ActivemqApplication.class, args);
     }
+    public static void testDestination(Destination destination) {
+        try {
+            // 创建连接和会话
+            //ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory("tcp://127.0.0.1:61616");
+            ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory("vm://localhost?broker.persistent=false");
+            ActiveMQConnection conn = (ActiveMQConnection) factory.createConnection();
+            conn.start();
+            // Session session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
+            //客户端确认消息
+            Session session = conn.createSession(false, Session.CLIENT_ACKNOWLEDGE);
+            // 创建消费者
+            MessageConsumer consumer = session.createConsumer( destination );
+            final AtomicInteger count = new AtomicInteger(0);
+            MessageListener listener = new MessageListener() {
+                public void onMessage(Message message) {
+                    try {
+                        // 打印所有的消息内容
+                        // Thread.sleep();
+                        System.out.println(count.incrementAndGet() + " => receive from " + destination.toString() + ": " + message);
+                        // message.acknowledge(); // 前面所有未被确认的消息全部都确认。
+                        message.acknowledge();//手动确认消息，之后消息从队列里面删除
+                    } catch (Exception e) {
+                        e.printStackTrace(); // 不要吞任何这里的异常，
+                        try {
+                            session.recover();//消费失败，消息回滚
+                        }catch (Exception ee){
+                            ee.printStackTrace();
+                        }
+                    }
+                }
+            };
+            // 绑定消息监听器
+            //consumer.setMessageListener(listener);
+            consumer.receive();
+            // 创建生产者，生产100个消息
+            MessageProducer producer = session.createProducer(destination);
+            int index = 0;
+            while (index++ < 100) {
+                TextMessage message = session.createTextMessage(index + " message.");
+                producer.send(message);
+            }
+            Thread.sleep(20000);
+            session.close();
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
 
+### 第2种方式：直接启动activemq服务：
+
+1. 创建queue和topic
+- activemq version: 5.16.2 单机
+- 创建queue: test.queue, 创建topic: test.topic
+
+2. 利用jms 分别在queue和topic
+
+```java
+public class ActivemqApplication {
+
+    public static void main(String[] args) {
+        // 定义Destination
+        // Destination destination = new ActiveMQTopic("test.topic");
+        Destination destination = new ActiveMQQueue("test.queue");
+        testDestination(destination);
+    }
     public static void testDestination(Destination destination) {
         try {
             // 创建连接和会话
@@ -196,7 +284,6 @@ public class ActivemqApplication {
                         // Thread.sleep();
                         System.out.println(count.incrementAndGet() + " => receive from " + destination.toString() + ": " + message);
                         // message.acknowledge(); // 前面所有未被确认的消息全部都确认。
-
                     } catch (Exception e) {
                         e.printStackTrace(); // 不要吞任何这里的异常，
                     }
@@ -204,9 +291,7 @@ public class ActivemqApplication {
             };
             // 绑定消息监听器
             consumer.setMessageListener(listener);
-
             //consumer.receive()
-
             // 创建生产者，生产100个消息
             MessageProducer producer = session.createProducer(destination);
             int index = 0;
@@ -214,16 +299,12 @@ public class ActivemqApplication {
                 TextMessage message = session.createTextMessage(index + " message.");
                 producer.send(message);
             }
-
             Thread.sleep(20000);
             session.close();
             conn.close();
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 }
-
 ```
