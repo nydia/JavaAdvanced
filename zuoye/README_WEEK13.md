@@ -124,3 +124,4 @@ start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.s
 ## 第6题  思考和设计自定义 MQ 第二个版本或第三个版本，写代码实现其中至少一个功能点
 
 
+https://github.com/nydia/JavaAdvanced/tree/main/09mq/kmq-core-v2
