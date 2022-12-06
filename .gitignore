@@ -24,10 +24,7 @@ hs_err_pid*
 
 # idea
 bin/
-/.idea/
-/**/logs/
-/**/*.iml
-/**/**/target/
-/**/**/.idea/
-/**/**/*.iml
-/**/**/logs/
+.idea/
+logs/
+*.iml
+target/

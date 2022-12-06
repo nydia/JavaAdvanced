@@ -27,7 +27,7 @@
 | 100w  | Jdbc+PreparedStatement(url + rewriteBatchedStatements=true)| 210226(毫秒),210(秒),3.5(分) |
 | 100w  | Jdbc+PreparedStatement(url + rewriteBatchedStatements=true) + + Druid(20) + 20线程| 7301(毫秒),7.3(秒) |
 
-##### 单元测试类： com.nydia.modules.test.InsertDataTest 
+##### 单元测试类： com.nydia.modules.test.InsertDataTest
 
 地址：https://github.com/nydia/JavaAdvanced/blob/main/mysqlInsert/src/test/java/com/nydia/modules/test/InsertDataTest.java
 
